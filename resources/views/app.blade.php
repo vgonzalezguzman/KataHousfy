@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Application</title>
+        <title>Mars Rover</title>
         @vite('resources/js/app.js')
-    @inertiaHead
+        @inertiaHead
     </head>
     <body>
         @inertia
