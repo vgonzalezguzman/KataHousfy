@@ -17,8 +17,9 @@ const rows = ref(props.planetData[0].length);
 
 const addObstaclesToPlanet = (planetData) => {
     let obstaclePosition = [];
-    const obstacleNumber = Math.floor(Math.random() * ((cols.value + rows.value) / 4));
-    console.log(obstacleNumber);
+    const maxObs = Math.floor((cols.value + rows.value));
+    const minObs = Math.floor(((cols.value / 2) + (rows.value / 2)) / 4);
+    const obstacleNumber = Math.floor(Math.random() * (maxObs - minObs + 1) + minObs);
     for (let i = 0; i < obstacleNumber; i++) {
         const x = Math.floor(Math.random() * cols.value);
         const y = Math.floor(Math.random() * rows.value);

@@ -23,5 +23,4 @@ const generatePlanet = () => {
 </script>
 
 <template>
-    <p>OK</p>
 </template>

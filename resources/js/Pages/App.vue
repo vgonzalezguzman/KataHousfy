@@ -3,11 +3,13 @@ import { ref, onMounted } from 'vue';
 import Layout from '@/Components/Layout.vue';
 import Planet from '@/Components/Planet.vue';
 import Obstacle from '@/Components/Obstacle.vue';
+import Rover from '../Components/Rover.vue';
 
 const planetRef = ref(null);
 const planetData = ref([]);
 const isGen = ref(false);
 const processedPlanetData = ref([]);
+const finalizedPlanetData = ref([]);
 
 onMounted(() => {
     setTimeout(() => {
@@ -21,10 +23,16 @@ onMounted(() => {
 const handleProcessedPlanetData = (updatedPlanetData) => {
     processedPlanetData.value = updatedPlanetData;
 };
+
+const handleFinalizedMap = (finalizeMapData) => {
+    finalizedPlanetData.value = finalizeMapData;
+}
 </script>
 <template>
     <Layout class="w-full h-full">
         <Planet ref="planetRef" />
         <Obstacle v-if="planetData.length" :planetData="planetData"  @processed="handleProcessedPlanetData" />
+        <Rover v-if="processedPlanetData.length" :processedPlanetData="processedPlanetData" @finalizedMap="handleFinalizedMap" />
+        <p v-if="finalizedPlanetData.length"> {{ finalizedPlanetData }}</p>
     </Layout>
 </template>
