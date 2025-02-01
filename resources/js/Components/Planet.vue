@@ -8,7 +8,6 @@ const planet = ref([]);
 const isGen = ref(false);
 
 onMounted(() => {
-    console.log("mounting");
     generatePlanet();
 });
 
@@ -20,7 +19,6 @@ defineExpose({
 const generatePlanet = () => {
     planet.value = Array.from({ length: rows }, () => Array(cols).fill(null));
     isGen.value = true;
-    console.log(isGen.value);
 };
 </script>
 
