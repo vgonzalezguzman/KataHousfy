@@ -30,10 +30,23 @@ const handleFinalizedMap = (finalizeMapData) => {
 }
 </script>
 <template>
-    <Layout class="w-full h-full">
-        <Planet ref="planetRef" />
-        <Obstacle v-if="planetData.length" :planetData="planetData"  @processed="handleProcessedPlanetData" />
-        <Rover v-if="processedPlanetData.length" :processedPlanetData="processedPlanetData" @finalizedMap="handleFinalizedMap" />
-        <RoverMovement v-if="finalizedPlanetData.length" :finalizedPlanetData="finalizedPlanetData" />
-    </Layout>
+    <div class="container">
+        <Layout>
+            <Planet ref="planetRef" />
+            <Obstacle v-if="planetData.length" :planetData="planetData" @processed="handleProcessedPlanetData" />
+            <Rover v-if="processedPlanetData.length" :processedPlanetData="processedPlanetData"
+                @finalizedMap="handleFinalizedMap" />
+            <RoverMovement v-if="finalizedPlanetData.length" :finalizedPlanetData="finalizedPlanetData" />
+        </Layout>
+    </div>
 </template>
+
+<style>
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f3f4f6;
+}
+</style>

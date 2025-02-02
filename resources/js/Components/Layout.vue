@@ -1,7 +1,6 @@
 <template>
-    <div class="w-full h-full">
-        <p>Layout</p>
-        <main class="w-full h-full">
+    <div class="w-full">
+        <main class="w-full">
             <slot></slot>
         </main>
     </div>
